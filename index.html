@@ -244,6 +244,115 @@
       text-transform: none;
     }
 
+    .related-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 100%;
+      margin-top: 28px;
+      padding: 10px 22px 10px 14px;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(124, 58, 237, 0.20);
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+      text-align: left;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .related-project:hover {
+      color: inherit;
+      transform: translateY(-2px);
+      border-color: rgba(124, 58, 237, 0.42);
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.14);
+    }
+
+    .related-icon {
+      position: relative;
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed 56%, #ec4899);
+    }
+
+    .related-icon::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #ffffff;
+      border-radius: 999px;
+    }
+
+    .related-icon::after {
+      content: "";
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      width: 8px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 999px;
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+
+    .related-text {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .related-tag {
+      color: var(--violet);
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .related-title {
+      color: var(--ink);
+      font-size: 0.98rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .related-title strong {
+      font-family: var(--display);
+      font-size: 1.16rem;
+      font-weight: 700;
+      font-style: italic;
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .related-summary {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .related-arrow {
+      flex: 0 0 auto;
+      color: var(--red);
+      font-size: 1.1rem;
+      transition: transform 180ms ease;
+    }
+
+    .related-project:hover .related-arrow {
+      transform: translateX(4px);
+    }
+
     .hero-ledger {
       position: relative;
       overflow: hidden;
@@ -1491,6 +1600,15 @@
             Video
           </a>
         </div>
+        <a class="related-project" href="https://microsoft.github.io/SkillLens/" target="_blank" rel="noopener" aria-label="Open the SkillLens project page">
+          <span class="related-icon" aria-hidden="true"></span>
+          <span class="related-text">
+            <span class="related-tag">Related project</span>
+            <span class="related-title"><strong>SkillLens</strong> studies model-generated agent skills.</span>
+            <span class="related-summary">A companion project page from Microsoft Research.</span>
+          </span>
+          <span class="related-arrow" aria-hidden="true">-&gt;</span>
+        </a>
       </div>
 
       <aside class="hero-ledger" aria-label="Key result summary">
