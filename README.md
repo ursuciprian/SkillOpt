@@ -1,15 +1,16 @@
 # SkillOpt: Executive Strategy for Self-Evolving Agent Skills
 
-
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
 *Train agent skills like you train neural networks — with epochs, learning rates, and validation gates — but without touching model weights.*
 
-[![Project Page](https://img.shields.io/badge/Project%20Page-SkillOpt-8dbb3c?style=for-the-badge&labelColor=4c4c4c)](https://microsoft.github.io/SkillOpt/)
-[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b?style=for-the-badge&labelColor=4c4c4c)](https://microsoft.github.io/SkillOpt/#citation)
-[![Project Video](https://img.shields.io/badge/Project%20Video-YouTube-ff0000?style=for-the-badge&labelColor=4c4c4c)](https://youtu.be/JUBMDTCiM0M)
+[![Project Page](https://img.shields.io/badge/Project%20Page-SkillOpt-8dbb3c?style=for-the-badge&labelColor=4c4c4c)](https://microsoft.github.io/SkillOpt/) [![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b?style=for-the-badge&labelColor=4c4c4c)](https://arxiv.org/abs/2605.23904) [![Project Video](https://img.shields.io/badge/Project%20Video-Watch%20Demo-ff0000?style=for-the-badge&labelColor=4c4c4c)](https://youtu.be/JUBMDTCiM0M) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&labelColor=4c4c4c)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&labelColor=4c4c4c)](LICENSE)
 
-[![SkillOpt project video](https://img.youtube.com/vi/JUBMDTCiM0M/maxresdefault.jpg)](https://youtu.be/JUBMDTCiM0M)
+## 🎬 SkillOpt Demo Video
+
+https://github.com/user-attachments/assets/eb12d3bc-371c-467f-904d-91b61f339ed7
+
+<p align="center">
+  <a href="https://youtu.be/JUBMDTCiM0M"><b>▶ Watch the full demo on YouTube</b></a>
+</p>
 
 ---
 
