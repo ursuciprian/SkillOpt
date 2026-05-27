@@ -137,7 +137,7 @@ def parse_args() -> argparse.Namespace:
     # Legacy flat CLI overrides (still work, prefer --cfg-options for new usage)
     p.add_argument("--env", type=str)
     p.add_argument("--backend", type=str,
-                   choices=["azure_openai", "codex", "codex_exec", "claude", "claude_chat", "claude_code_exec", "qwen", "qwen_chat"])
+                   choices=["azure_openai", "codex", "codex_exec", "claude", "claude_chat", "claude_code_exec", "qwen", "qwen_chat", "bedrock", "bedrock_converse", "aws_bedrock"])
     p.add_argument("--optimizer_model", type=str)
     p.add_argument("--target_model", type=str)
     p.add_argument("--optimizer_backend", type=str)
@@ -173,6 +173,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--qwen_chat_timeout_seconds", type=float)
     p.add_argument("--qwen_chat_max_tokens", type=int)
     p.add_argument("--qwen_chat_enable_thinking", type=_BOOL)
+    p.add_argument("--bedrock_region", type=str)
+    p.add_argument("--bedrock_profile", type=str)
+    p.add_argument("--bedrock_optimizer_model", type=str)
+    p.add_argument("--bedrock_target_model", type=str)
     p.add_argument("--codex_exec_path", type=str)
     p.add_argument("--codex_exec_sandbox", type=str)
     p.add_argument("--codex_exec_profile", type=str)
@@ -394,6 +398,9 @@ def load_config(args: argparse.Namespace) -> dict:
         if backend in {"claude", "claude_chat"}:
             flat.setdefault("optimizer_backend", "claude_chat")
             flat.setdefault("target_backend", "claude_chat")
+        elif backend in {"bedrock_converse"}:
+            flat.setdefault("optimizer_backend", "bedrock_converse")
+            flat.setdefault("target_backend", "bedrock_converse")
         elif backend in {"codex", "codex_exec"}:
             flat.setdefault("optimizer_backend", "openai_chat")
             flat.setdefault("target_backend", "codex_exec")
@@ -434,6 +441,18 @@ def load_config(args: argparse.Namespace) -> dict:
             and not _has_model_override("model.target", "target_model")
         ):
             flat["target_model"] = default_model_for_backend("qwen_chat")
+    if flat.get("optimizer_backend") == "bedrock_converse":
+        if (
+            str(flat.get("optimizer_model", "") or "").strip() in _OPENAI_DEFAULT_MODEL_SENTINELS
+            and not _has_model_override("model.optimizer", "optimizer_model")
+        ):
+            flat["optimizer_model"] = default_model_for_backend("bedrock_converse")
+    if flat.get("target_backend") == "bedrock_converse":
+        if (
+            str(flat.get("target_model", "") or "").strip() in _OPENAI_DEFAULT_MODEL_SENTINELS
+            and not _has_model_override("model.target", "target_model")
+        ):
+            flat["target_model"] = default_model_for_backend("bedrock_converse")
 
     # Auto-generate output root
     if not flat.get("out_root"):

@@ -49,6 +49,7 @@ from skillopt.optimizer.update_modes import (
 )
 from skillopt.model import (
     configure_azure_openai,
+    configure_bedrock,
     configure_claude_code_exec,
     configure_codex_exec,
     configure_qwen_chat,
@@ -592,6 +593,9 @@ class ReflACTTrainer:
             if backend in {"claude", "claude_chat"}:
                 optimizer_backend = optimizer_backend or "claude_chat"
                 target_backend = target_backend or "claude_chat"
+            elif backend in {"bedrock", "bedrock_converse"}:
+                optimizer_backend = optimizer_backend or "bedrock_converse"
+                target_backend = target_backend or "bedrock_converse"
             elif backend in {"codex", "codex_exec"}:
                 optimizer_backend = optimizer_backend or "openai_chat"
                 target_backend = target_backend or "codex_exec"
@@ -635,6 +639,12 @@ class ReflACTTrainer:
             timeout_seconds=cfg.get("qwen_chat_timeout_seconds"),
             max_tokens=cfg.get("qwen_chat_max_tokens"),
             enable_thinking=cfg.get("qwen_chat_enable_thinking"),
+        )
+        configure_bedrock(
+            region=cfg.get("bedrock_region") or None,
+            profile=cfg.get("bedrock_profile") or None,
+            optimizer_model=cfg.get("bedrock_optimizer_model") or None,
+            target_model=cfg.get("bedrock_target_model") or None,
         )
         os.environ["REFLACT_CODEX_TRACE_TO_OPTIMIZER"] = (
             "1"

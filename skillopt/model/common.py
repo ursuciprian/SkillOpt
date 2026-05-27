@@ -25,6 +25,8 @@ _BACKEND_DEFAULT_MODELS = {
     "claude_chat": "claude-sonnet-4-6",
     "claude_code_exec": "claude-sonnet-4-6",
     "qwen_chat": "Qwen/Qwen3.5-4B",
+    "bedrock": "us.anthropic.claude-sonnet-4-6-20250514",
+    "bedrock_converse": "us.anthropic.claude-sonnet-4-6-20250514",
 }
 
 _BACKEND_ALIASES = {
@@ -41,6 +43,10 @@ _BACKEND_ALIASES = {
     "anthropic": "claude_chat",
     "qwen": "qwen_chat",
     "qwen_chat": "qwen_chat",
+    "bedrock": "bedrock_converse",
+    "bedrock_converse": "bedrock_converse",
+    "aws_bedrock": "bedrock_converse",
+    "aws-bedrock": "bedrock_converse",
 }
 
 
